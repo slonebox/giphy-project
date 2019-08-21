@@ -2,12 +2,17 @@ var searchTerm = "";
 
 var topics = ["AVALANCHE", "BEAR ATTACK", "EXPLOSION", "FIRE", "HURRICANE", "PARTY", "SANDSTORM", "TORNADO", "WAR"];
 
-for (var i = 0; i < topics.length; i++) {
-    newButton = $("<div>").text(topics[i]).addClass("btn btn-light m-1 chaos-button");
-    $("#buttons-container").append(newButton);
-}
+//Creates initial buttons when page loads
+function makeButtons () {
+    for (var i = 0; i < topics.length; i++) {
+        newButton = $("<div>").text(topics[i]).addClass("btn btn-light m-1 chaos-button");
+        $("#buttons-container").append(newButton);
+    };
+};
+makeButtons();
 
-$(".chaos-button").on("click", function () {
+//Function that displays GIFs corresponding to the button pressed
+$(".chaos-button").on("click", function makeChaos () {
     //Redefines the searchTerm variable with the button's text
     searchTerm = this.textContent;
 
@@ -37,4 +42,12 @@ $(".chaos-button").on("click", function () {
 
     });
 
+});
+
+//Function that creates a new button and displays corresponding GIFTS
+$("#submit-chaos").on("click", function submitChaos () {
+    newButtonValue = $("#chaos-input").val().trim().toUpperCase();
+    topics.push(newButtonValue);
+    $("#buttons-container").empty();
+    makeButtons();
 });
