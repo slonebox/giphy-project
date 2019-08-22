@@ -13,7 +13,7 @@ makeButtons();
 
 
 //Function that displays GIFs corresponding to the button pressed
-$(".chaos-button").on("click", function () {
+$(document).on("click", ".chaos-button", function () {
     //Redefines the searchTerm variable with the button's text
     searchTerm = this.textContent;
 
@@ -49,7 +49,8 @@ $(".chaos-button").on("click", function () {
 });
 
 //Function that changes state of GIFs
-$(".gif").on("click", function() {
+$(document).on("click",".gif", function() {
+    console.log("clicked");
     // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
     var state = $(this).attr("data-state");
     // If the clicked image's state is still, update its src attribute to what its data-animate value is.
