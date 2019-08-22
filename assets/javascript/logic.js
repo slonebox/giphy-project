@@ -2,8 +2,9 @@ var searchTerm = "";
 
 var topics = ["AVALANCHE", "BEAR ATTACK", "EXPLOSION", "FIRE", "HURRICANE", "PARTY", "SANDSTORM", "TORNADO", "WAR"];
 
+
 //Creates initial buttons when page loads
-function makeButtons () {
+function makeButtons() {
     for (var i = 0; i < topics.length; i++) {
         newButton = $("<div>").text(topics[i]).addClass("btn btn-light m-1 chaos-button");
         $("#buttons-container").append(newButton);
@@ -11,8 +12,9 @@ function makeButtons () {
 };
 makeButtons();
 
+
 //Function that displays GIFs corresponding to the button pressed
-$(".chaos-button").on("click", function makeChaos () {
+$(".chaos-button").on("click", function () {
     //Redefines the searchTerm variable with the button's text
     searchTerm = this.textContent;
 
@@ -39,15 +41,16 @@ $(".chaos-button").on("click", function makeChaos () {
             gifDiv.append(gifImg, gifRating);
             $("#results-container").append(gifDiv);
         }
-
     });
-
 });
 
 //Function that creates a new button and displays corresponding GIFTS
-$("#submit-chaos").on("click", function submitChaos () {
+$("#make-chaos").on("click", function (event) {
+    event.preventDefault();
     newButtonValue = $("#chaos-input").val().trim().toUpperCase();
     topics.push(newButtonValue);
+    topics.sort();
     $("#buttons-container").empty();
     makeButtons();
+    console.log(topics)
 });
