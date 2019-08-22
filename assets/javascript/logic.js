@@ -2,7 +2,6 @@ var searchTerm = "";
 
 var topics = ["AVALANCHE", "BEAR ATTACK", "EXPLOSION", "FIRE", "HURRICANE", "PARTY", "SANDSTORM", "TORNADO", "WAR"];
 
-
 //Creates initial buttons when page loads
 function makeButtons() {
     for (var i = 0; i < topics.length; i++) {
@@ -35,13 +34,31 @@ $(".chaos-button").on("click", function () {
 
         //Iterates through the results array; displays their images and ratings
         for (var i = 0; i < results.length; i++) {
-            gifDiv = $("<div>");
-            gifImg = $("<img>").attr("src", results[i].images.original_still.url);
+            gifDiv = $("<div>").addClass("play-pause");
+            gifStill = results[i].images.original_still.url;
+            gifAnimate = results[i].images.original.url;
+            gifImg = $("<img>").addClass("play-pause").attr("src", gifStill).attr("data-state", "still").attr("data-still", gifStill).attr("data-animate", gifAnimate);
+            console.log(gifImg);
+            console.log(gifImg.attr("data-animate"));
             gifRating = $("<p>").text("Rating: " + (results[i].rating).toUpperCase());
             gifDiv.append(gifImg, gifRating);
             $("#results-container").append(gifDiv);
         }
     });
+});
+
+//Function that changes state of GIFs
+$(".play-pause").on("click", function () {
+
+    var state = $(this).attr("data-state");
+
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "still");
+    }
 });
 
 //Function that creates a new button and displays corresponding GIFTS
