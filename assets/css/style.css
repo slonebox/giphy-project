@@ -1,5 +1,5 @@
 body {
-    background-image: url(/assets/images/ep_naturalblack.png);
+    background-image: url(https://github.com/slonebox/giphy-project/blob/master/assets/images/ep_naturalblack.png?raw=true);
 }
 
 h1, h6 {
@@ -21,7 +21,7 @@ label {
 }
 
 .jumbotron {
-    background-image: url(/assets/images/train-wreck.jpg);
+    background-image: url(https://github.com/slonebox/giphy-project/blob/master/assets/images/train-wreck.jpg?raw=true);
     background-position: center;
     background-size: cover;
     opacity: 1;
