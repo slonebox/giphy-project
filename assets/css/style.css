@@ -1,0 +1,68 @@
+body {
+    background-image: url(/assets/images/ep_naturalblack.png);
+}
+
+h1, h6 {
+    color: white;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 70px;
+    font-weight: 600;
+    text-shadow: 5px 2px rgb(190, 0, 0);
+}
+
+
+hr {
+    border-color: #b8b8b8;
+}
+
+label {
+    color: white;
+    text-shadow: 1px 1px #222222;
+}
+
+.jumbotron {
+    background-image: url(/assets/images/train-wreck.jpg);
+    background-position: center;
+    background-size: cover;
+    opacity: 1;
+}
+
+.chaos-button:hover {
+    background-color: rgb(190, 0, 0);
+    border-color: rgb(172, 2, 2);
+}
+
+#make-chaos:hover {
+    background-color: #343a40;
+    border-color: #222222;
+}
+
+.gif {
+    border: 1px solid #222222;
+    border-radius: .2rem;
+}
+
+.play-pause {
+    background-color: #343a40;
+    border: 1px solid #222222;
+    border-radius: .25rem;
+    display: inline-block;
+    padding: 5px 5px 0px;
+    margin: 5px;
+
+}
+
+.gif {
+    margin-bottom: 10px;
+}
+
+.rating-text {
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px #222222;
+}
+
+#make-chaos {
+    background-color: rgb(190, 0, 0);
+    border-color: rgb(190, 0, 0);
+}

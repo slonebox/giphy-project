@@ -1,11 +1,11 @@
 var searchTerm = "";
 
-var topics = ["AVALANCHE", "BEAR ATTACK", "EXPLOSION", "FIRE", "HURRICANE", "PARTY", "SANDSTORM", "TORNADO", "WAR"];
+var topics = ["AVALANCHE", "BEAR ATTACK", "BLACK FRIDAY", "CAR CRASH", "EXPLOSION", "FIRE", "HURRICANE", "LOCUSTS", "NFL FOOTBALL", "PARTY", "SANDSTORM", "STAMPEDE", "TORNADO", "TSUNAMI", "TRAIN WRECK", "WAR"];
 
 //Creates initial buttons when page loads
 function makeButtons() {
     for (var i = 0; i < topics.length; i++) {
-        newButton = $("<div>").text(topics[i]).addClass("btn btn-light m-1 chaos-button");
+        newButton = $("<div>").text(topics[i]).addClass("btn btn-dark m-1 chaos-button");
         $("#buttons-container").append(newButton);
     };
 };
@@ -34,13 +34,13 @@ $(document).on("click", ".chaos-button", function () {
 
         //Iterates through the results array; displays their images and ratings
         for (var i = 0; i < results.length; i++) {
-            gifDiv = $("<div>").addClass("play-pause");
-            gifStill = results[i].images.original_still.url;
-            gifAnimate = results[i].images.original.url;
+            gifDiv = $("<div>").addClass("play-pause align-top");
+            gifStill = results[i].images.fixed_height_still.url;
+            gifAnimate = results[i].images.fixed_height.url;
             gifImg = $("<img>").addClass("gif").attr("src", gifStill).attr("data-state", "still").attr("data-still", gifStill).attr("data-animate", gifAnimate);
             console.log(gifStill);
             console.log(gifAnimate);
-            gifRating = $("<p>").text("Rating: " + (results[i].rating).toUpperCase());
+            gifRating = $("<p>").addClass("rating-text").text("Rating: " + (results[i].rating).toUpperCase());
             gifDiv.append(gifImg, gifRating);
             $("#results-container").append(gifDiv);
             console.log(gifImg);
@@ -73,5 +73,5 @@ $("#make-chaos").on("click", function (event) {
     topics.sort();
     $("#buttons-container").empty();
     makeButtons();
-    console.log(topics)
+    $("#chaos-input").val("");
 });
